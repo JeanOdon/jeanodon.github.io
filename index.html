@@ -186,8 +186,6 @@
 <!-----Link Js----->
 
 <script src="/script.js"></script>
-<script src="https://smtpjs.com/v3/smtp.js"></script>
-
 <script>
         var tablinks = document.getElementsByClassName("tab-links");
         var tabcontents = document.getElementsByClassName("tab-contents");
@@ -203,24 +201,6 @@
             document.getElementById(tabname).classList.add("active-tab");
         }
 </script>
-<script>
-    function sendEmail () {
-        Email.send({
-    Host : "smtp.gmail.com",
-    Username : "jeanodon1125@gmail.com",
-    Password : "726886445439#*",
-    To : 'sinjhey@gmail.com',
-    From : document.getElementById("email").value,
-    Subject : "New contact Form Enquiry",
-    Body : "Name: " + document.getElementById("name").value
-            + "<br> Email:" + document.getElementById("email").value
-            + "<br> Message:" + document.getElementById("message").value
-}).then(
-  message => alert("Message envoyé")
-);
-    }
-</script>
-
 <footer>
     <section class="footer-text">
         <p>Copyright by Jean Odon. 2022</p>
