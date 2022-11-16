@@ -19,6 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -172,9 +173,9 @@
                 </div>
             </div>
             <div class="contact-righ">
-                <form action="https://formsubmit.co/jeanodon1125@gmail.com" method="POST"/>
-                    <input type="text" name="Name" placeholder="Votre nom" required>
-                    <input type="email" name="Email" placeholder="Votre email" required>
+                <form onsubmit="sendEmail(); reset(); return false;">
+                    <input type="text" name="name" placeholder="Votre nom" required>
+                    <input type="email" name="email" placeholder="Votre email" required>
                     <textarea name="message" rows="6" placeholder="Votre message"></textarea>
                     <button type="submit" class="btn">Envoyer</button>
                 </form>
@@ -201,6 +202,23 @@
             event.currentTarget.classList.add("active-link");
             document.getElementById(tabname).classList.add("active-tab");
         }
+</script>
+<script>
+    function sendEmail () {
+        Email.send({
+    Host : "smtp.gmail.com",
+    Username : "jeanodon1125@gmail.com",
+    Password : "726886445439#*",
+    To : 'sinjhey@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "New contact Form Enquiry",
+    Body : "Name: " + document.getElementById("name").value
+            + "<br> Email:" + document.getElementById("email").value
+            + "<br> Message:" + document.getElementById("message").value
+}).then(
+  message => alert("Message envoyé")
+);
+    }
 </script>
 
 <footer>
